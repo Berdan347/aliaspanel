@@ -591,6 +591,48 @@
 .keyCard.success{
   box-shadow: 0 0 25px rgba(34,211,238,.6);
 }
+/* ===== EKLENDİ: Key Gate efektleri ===== */
+@keyframes kshake{
+  0%,100%{transform:translateX(0)}
+  20%{transform:translateX(-8px)}
+  40%{transform:translateX(8px)}
+  60%{transform:translateX(-6px)}
+  80%{transform:translateX(6px)}
+}
+.keyCard.shake{ animation:kshake .35s ease; }
+
+@keyframes ksuccess{
+  0%{transform:scale(1)}
+  45%{transform:scale(1.02)}
+  100%{transform:scale(1)}
+}
+.keyCard.success{
+  animation:ksuccess .45s ease;
+  box-shadow: 0 0 0 1px rgba(34,211,238,.20), 0 18px 70px rgba(0,0,0,.65), 0 0 40px rgba(34,211,238,.20);
+}
+
+.keyBtn.loading{
+  position:relative;
+  pointer-events:none;
+  opacity:.9;
+  padding-right:44px;
+}
+.keyBtn.loading:after{
+  content:"";
+  position:absolute;
+  right:14px; top:50%;
+  width:16px; height:16px;
+  margin-top:-8px;
+  border-radius:50%;
+  border:2px solid rgba(255,255,255,.30);
+  border-top-color: rgba(34,211,238,.95);
+  animation: kspin .8s linear infinite;
+}
+@keyframes kspin{ to{ transform:rotate(360deg)} }
+
+/* mesaj animasyonu */
+.keyMsg{transition: transform .12s ease, opacity .12s ease}
+.keyMsg.bump{ transform: translateY(-1px); }
 
   </style>
 </head>
@@ -1000,6 +1042,38 @@
         if(err === "KEY_REQUIRED") return "Key gir ❗";
         return "Key doğrulanamadı ❌";
       }
+function setLoading(on){
+  const btn = document.getElementById("keyBtn");
+  if(!btn) return;
+  btn.disabled = !!on;
+  btn.classList.toggle("loading", !!on);
+}
+
+function shakeCard(){
+  const card = document.querySelector(".keyCard");
+  if(!card) return;
+  card.classList.remove("shake");
+  void card.offsetWidth;
+  card.classList.add("shake");
+}
+
+function successCard(){
+  const card = document.querySelector(".keyCard");
+  if(!card) return;
+  card.classList.remove("success");
+  void card.offsetWidth;
+  card.classList.add("success");
+  setTimeout(()=>card.classList.remove("success"), 600);
+}
+
+function bumpMsg(){
+  const m = document.getElementById("keyMsg");
+  if(!m) return;
+  m.classList.remove("bump");
+  void m.offsetWidth;
+  m.classList.add("bump");
+  setTimeout(()=>m.classList.remove("bump"), 220);
+}
 
       async function verifyKeyWithServer(key){
         const r = await fetch(CF_API_BASE + "/verify", {
