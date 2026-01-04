@@ -972,7 +972,7 @@
       if (window.__BRDN_GATE_INSTALLED__) return;
       window.__BRDN_GATE_INSTALLED__ = true;
 
-      const API_BASE = "https://brdnj4j-auth.berdan-gunan0.workers.dev"; // <-- senin worker
+      const CF_API_BASE = "https://brdnj4j-auth.berdan-gunan0.workers.dev"; // <-- senin worker
       const KEY_SAVED = "brdn_key_saved_v2";
 
       const input = document.getElementById("keyInput");
@@ -1002,7 +1002,7 @@
       }
 
       async function verifyKeyWithServer(key){
-        const r = await fetch(API_BASE + "/verify", {
+        const r = await fetch(CF_API_BASE + "/verify", {
           method: "POST",
           headers: {"Content-Type":"application/json"},
           body: JSON.stringify({ key })
