@@ -633,6 +633,54 @@
 /* mesaj animasyonu */
 .keyMsg{transition: transform .12s ease, opacity .12s ease}
 .keyMsg.bump{ transform: translateY(-1px); }
+/* Key Button loading spinner */
+.keyBtn.loading{
+  position:relative;
+  pointer-events:none;
+  opacity:.92;
+  padding-right:44px;
+}
+.keyBtn.loading:after{
+  content:"";
+  position:absolute;
+  right:14px;
+  top:50%;
+  width:16px;
+  height:16px;
+  margin-top:-8px;
+  border-radius:50%;
+  border:2px solid rgba(255,255,255,.28);
+  border-top-color: rgba(34,211,238,.95);
+  animation: kspin .8s linear infinite;
+}
+@keyframes kspin{ to{ transform:rotate(360deg)} }
+
+/* Shake error */
+@keyframes kshake{
+  0%,100%{transform:translateX(0)}
+  20%{transform:translateX(-8px)}
+  40%{transform:translateX(8px)}
+  60%{transform:translateX(-6px)}
+  80%{transform:translateX(6px)}
+}
+.keyCard.shake{ animation:kshake .35s ease; }
+
+/* Success pop */
+@keyframes ksuccess{
+  0%{transform:scale(1)}
+  45%{transform:scale(1.02)}
+  100%{transform:scale(1)}
+}
+.keyCard.success{ animation:ksuccess .45s ease; }
+
+/* Message bump */
+@keyframes kbump{
+  0%{transform:translateY(0); opacity:1}
+  50%{transform:translateY(-1px); opacity:1}
+  100%{transform:translateY(0); opacity:1}
+}
+#keyMsg.bump{ animation:kbump .22s ease; }
+
 
   </style>
 </head>
