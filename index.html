@@ -552,6 +552,46 @@
       gap:8px;
     }
     .keyLink:hover{border-color: rgba(34,211,238,.22)}
+
+    /* ===== KEY ANIMASYON & HATA EFEKTLERİ ===== */
+
+.keyBtn[disabled]{
+  opacity:.7;
+  cursor:not-allowed;
+}
+
+.keyBtn.loading::after{
+  content:"";
+  width:16px;
+  height:16px;
+  border:2px solid rgba(255,255,255,.4);
+  border-top-color: var(--cyan);
+  border-radius:50%;
+  display:inline-block;
+  margin-left:10px;
+  animation: spin .8s linear infinite;
+}
+
+@keyframes spin{
+  to{ transform: rotate(360deg); }
+}
+
+.keyCard.shake{
+  animation: shake .4s;
+}
+
+@keyframes shake{
+  0%{transform:translateX(0)}
+  25%{transform:translateX(-8px)}
+  50%{transform:translateX(8px)}
+  75%{transform:translateX(-6px)}
+  100%{transform:translateX(0)}
+}
+
+.keyCard.success{
+  box-shadow: 0 0 25px rgba(34,211,238,.6);
+}
+
   </style>
 </head>
 
@@ -1024,6 +1064,29 @@
       });
     })();
   </script>
+<script>
+function setLoading(on){
+  const btn = document.getElementById("keyBtn");
+  if(!btn) return;
+  btn.disabled = on;
+  btn.classList.toggle("loading", on);
+}
+
+function shakeCard(){
+  const card = document.querySelector(".keyCard");
+  if(!card) return;
+  card.classList.remove("shake");
+  void card.offsetWidth;
+  card.classList.add("shake");
+}
+
+function successCard(){
+  const card = document.querySelector(".keyCard");
+  if(!card) return;
+  card.classList.add("success");
+  setTimeout(()=>card.classList.remove("success"), 800);
+}
+</script>
 
 </body>
 </html>
