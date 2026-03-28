@@ -37,7 +37,6 @@
       overflow-x:hidden;
     }
 
-    /* subtle stars */
     .stars:before, .stars:after{
       content:"";
       position:fixed; inset:0;
@@ -391,7 +390,6 @@
       opacity:.95;
     }
 
-    /* Toast */
     .toast{
       position:fixed;
       left:50%;
@@ -425,7 +423,6 @@
       box-shadow: 0 0 14px rgba(34,211,238,.35);
     }
 
-    /* Scrollbar */
     .list::-webkit-scrollbar{width:10px}
     .list::-webkit-scrollbar-thumb{
       background: rgba(148,163,184,.18);
@@ -436,7 +433,6 @@
       background: rgba(34,211,238,.18);
     }
 
-    /* Modal */
     .modalBack{
       position:fixed; inset:0;
       background: rgba(0,0,0,.55);
@@ -481,234 +477,10 @@
       font-weight: 900;
       font-size: 12px;
     }
-
-    /* ===============================
-       KEY GATE (CSS)
-       =============================== */
-    .keyGate{
-      position:fixed; inset:0;
-      display:flex; align-items:center; justify-content:center;
-      background: rgba(0,0,0,.72);
-      backdrop-filter: blur(6px);
-      z-index:9999;
-      padding: 16px;
-    }
-    .keyCard{
-      width:min(560px, 92vw);
-      background: rgba(15, 23, 42, .88);
-      border: 1px solid rgba(148,163,184,.14);
-      box-shadow: 0 18px 70px rgba(0,0,0,.65);
-      border-radius: 18px;
-      padding: 18px;
-    }
-    .keyHead{margin-bottom:12px}
-    .keyTitle{font-weight:900; font-size:18px}
-    .keyDesc{color: var(--muted); font-size:13px; margin-top:6px}
-    .keyLabel{display:block; color: var(--muted); font-size:12px; margin: 10px 0 8px}
-    .keyRow{display:flex; gap:10px; align-items:stretch; flex-wrap:wrap}
-    .keyInput{
-      flex:1 1 320px;
-      padding:12px 12px;
-      border-radius:14px;
-      border:1px solid rgba(148,163,184,.14);
-      background: rgba(255,255,255,.04);
-      color:var(--txt);
-      outline:none;
-      box-shadow: 0 0 0 1px rgba(148,163,184,.06);
-    }
-    .keyInput:focus{
-      border-color: rgba(34,211,238,.42);
-      box-shadow: 0 0 0 3px rgba(34,211,238,.14), 0 0 22px rgba(56,189,248,.10);
-    }
-    .keyBtn{
-      flex:0 0 auto;
-      padding:12px 14px;
-      border-radius:14px;
-      border:1px solid rgba(34,211,238,.35);
-      background: linear-gradient(90deg, rgba(56,189,248,.16), rgba(34,211,238,.12));
-      color:var(--txt);
-      font-weight:900;
-      cursor:pointer;
-      white-space:nowrap;
-    }
-    .keyBtn:hover{filter: brightness(1.06)}
-    .keyBtn[disabled]{opacity:.6; cursor:not-allowed}
-    .keyMsg{margin-top:10px; min-height:18px; font-size:13px}
-    .keyMsg.ok{color:#86efac}
-    .keyMsg.bad{color:#fca5a5}
-    .keyFoot{margin-top:12px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:space-between}
-    .keyLink{
-      border:1px solid rgba(148,163,184,.14);
-      background: rgba(255,255,255,.04);
-      color: var(--txt);
-      border-radius: 12px;
-      padding: 8px 10px;
-      cursor:pointer;
-      font-weight: 900;
-      font-size: 12px;
-      text-decoration:none;
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-    }
-    .keyLink:hover{border-color: rgba(34,211,238,.22)}
-
-    /* ===== KEY ANIMASYON & HATA EFEKTLERİ ===== */
-
-.keyBtn[disabled]{
-  opacity:.7;
-  cursor:not-allowed;
-}
-
-.keyBtn.loading::after{
-  content:"";
-  width:16px;
-  height:16px;
-  border:2px solid rgba(255,255,255,.4);
-  border-top-color: var(--cyan);
-  border-radius:50%;
-  display:inline-block;
-  margin-left:10px;
-  animation: spin .8s linear infinite;
-}
-
-@keyframes spin{
-  to{ transform: rotate(360deg); }
-}
-
-.keyCard.shake{
-  animation: shake .4s;
-}
-
-@keyframes shake{
-  0%{transform:translateX(0)}
-  25%{transform:translateX(-8px)}
-  50%{transform:translateX(8px)}
-  75%{transform:translateX(-6px)}
-  100%{transform:translateX(0)}
-}
-
-.keyCard.success{
-  box-shadow: 0 0 25px rgba(34,211,238,.6);
-}
-/* ===== EKLENDİ: Key Gate efektleri ===== */
-@keyframes kshake{
-  0%,100%{transform:translateX(0)}
-  20%{transform:translateX(-8px)}
-  40%{transform:translateX(8px)}
-  60%{transform:translateX(-6px)}
-  80%{transform:translateX(6px)}
-}
-.keyCard.shake{ animation:kshake .35s ease; }
-
-@keyframes ksuccess{
-  0%{transform:scale(1)}
-  45%{transform:scale(1.02)}
-  100%{transform:scale(1)}
-}
-.keyCard.success{
-  animation:ksuccess .45s ease;
-  box-shadow: 0 0 0 1px rgba(34,211,238,.20), 0 18px 70px rgba(0,0,0,.65), 0 0 40px rgba(34,211,238,.20);
-}
-
-.keyBtn.loading{
-  position:relative;
-  pointer-events:none;
-  opacity:.9;
-  padding-right:44px;
-}
-.keyBtn.loading:after{
-  content:"";
-  position:absolute;
-  right:14px; top:50%;
-  width:16px; height:16px;
-  margin-top:-8px;
-  border-radius:50%;
-  border:2px solid rgba(255,255,255,.30);
-  border-top-color: rgba(34,211,238,.95);
-  animation: kspin .8s linear infinite;
-}
-@keyframes kspin{ to{ transform:rotate(360deg)} }
-
-/* mesaj animasyonu */
-.keyMsg{transition: transform .12s ease, opacity .12s ease}
-.keyMsg.bump{ transform: translateY(-1px); }
-/* Key Button loading spinner */
-.keyBtn.loading{
-  position:relative;
-  pointer-events:none;
-  opacity:.92;
-  padding-right:44px;
-}
-.keyBtn.loading:after{
-  content:"";
-  position:absolute;
-  right:14px;
-  top:50%;
-  width:16px;
-  height:16px;
-  margin-top:-8px;
-  border-radius:50%;
-  border:2px solid rgba(255,255,255,.28);
-  border-top-color: rgba(34,211,238,.95);
-  animation: kspin .8s linear infinite;
-}
-@keyframes kspin{ to{ transform:rotate(360deg)} }
-
-/* Shake error */
-@keyframes kshake{
-  0%,100%{transform:translateX(0)}
-  20%{transform:translateX(-8px)}
-  40%{transform:translateX(8px)}
-  60%{transform:translateX(-6px)}
-  80%{transform:translateX(6px)}
-}
-.keyCard.shake{ animation:kshake .35s ease; }
-
-/* Success pop */
-@keyframes ksuccess{
-  0%{transform:scale(1)}
-  45%{transform:scale(1.02)}
-  100%{transform:scale(1)}
-}
-.keyCard.success{ animation:ksuccess .45s ease; }
-
-/* Message bump */
-@keyframes kbump{
-  0%{transform:translateY(0); opacity:1}
-  50%{transform:translateY(-1px); opacity:1}
-  100%{transform:translateY(0); opacity:1}
-}
-#keyMsg.bump{ animation:kbump .22s ease; }
-
-
   </style>
 </head>
 
 <body>
-  <!-- KEY GATE HTML -->
-  <div id="keyGate" class="keyGate" aria-modal="true" role="dialog">
-    <div class="keyCard">
-      <div class="keyHead">
-        <div class="keyTitle">🔒 Key Gerekli</div>
-        <div class="keyDesc">Panele erişmek için anahtarı gir.</div>
-      </div>
-
-      <label class="keyLabel" for="keyInput">Key</label>
-      <div class="keyRow">
-        <input id="keyInput" class="keyInput" placeholder="Örn: BRDN-XXXX-XXXX-XXXX" autocomplete="off" />
-        <button id="keyBtn" class="keyBtn" type="button">Giriş</button>
-      </div>
-
-      <div id="keyMsg" class="keyMsg"></div>
-
-      <div class="keyFoot">
-        <button id="logoutKey" class="keyLink" type="button" style="display:none;">Key’i sıfırla</button>
-        <a class="keyLink" href="https://discord.com/users/816990858515709962" target="_blank" rel="noopener">Key satın al (Discord)</a>
-      </div>
-    </div>
-  </div>
-
   <div class="stars"></div>
 
   <div class="wrap">
@@ -807,7 +579,6 @@
 
   <div class="toast" id="toast"><span class="dot"></span><span id="toastText">Kopyalandı ✅</span></div>
 
-  <!-- KILAVUZ MODAL -->
   <div class="modalBack" id="modalBack" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal">
       <div class="modalTop">
@@ -824,7 +595,6 @@
     </div>
   </div>
 
-  <!-- Alias generator script -->
   <script>
     const emailEl = document.getElementById('email');
     const countEl = document.getElementById('count');
@@ -1055,194 +825,5 @@
       if(e.key === 'Escape') modalBack.style.display = 'none';
     });
   </script>
-
-  <!-- Key Gate (Cloudflare Worker verify) -->
- <script>
-  (function(){
-    if (window.__BRDN_GATE_INSTALLED__) return;
-    window.__BRDN_GATE_INSTALLED__ = true;
-
-    const CF_API_BASE = "https://brdnj4j-auth.berdan-gunan0.workers.dev"; // <-- senin worker
-    const KEY_SAVED = "brdn_key_saved_v2";
-
-    // DİKKAT: Bu elementler DOMContentLoaded’dan önce null olabilir
-    function $(id){ return document.getElementById(id); }
-
-    function setMsg(text, ok){
-      const el = $("keyMsg");
-      if(!el) return;
-      el.textContent = text;
-      el.className = "keyMsg " + (ok ? "ok" : "bad");
-      bumpMsg();
-    }
-
-    function openGate(){
-      const g = $("keyGate");
-      if(g) g.style.display = "none";
-    }
-
-    function showGate(){
-      const g = $("keyGate");
-      if(g) g.style.display = "flex";
-    }
-
-    function errToText(err){
-      if(err === "EXPIRED") return "Key süresi dolmuş ⏳";
-      if(err === "REVOKED") return "Key iptal edilmiş 🚫";
-      if(err === "INVALID_KEY") return "Key hatalı ❌";
-      if(err === "KEY_REQUIRED") return "Key gir ❗";
-      return "Key doğrulanamadı ❌";
-    }
-
-    function setLoading(on){
-      const btn = $("keyBtn");
-      if(!btn) return;
-      btn.disabled = !!on;
-      btn.classList.toggle("loading", !!on);
-    }
-
-    function shakeCard(){
-      const card = document.querySelector(".keyCard");
-      if(!card) return;
-      card.classList.remove("shake");
-      void card.offsetWidth;
-      card.classList.add("shake");
-    }
-
-    function successCard(){
-      const card = document.querySelector(".keyCard");
-      if(!card) return;
-      card.classList.remove("success");
-      void card.offsetWidth;
-      card.classList.add("success");
-      setTimeout(()=>card.classList.remove("success"), 600);
-    }
-
-    function bumpMsg(){
-      const m = $("keyMsg");
-      if(!m) return;
-      m.classList.remove("bump");
-      void m.offsetWidth;
-      m.classList.add("bump");
-      setTimeout(()=>m.classList.remove("bump"), 220);
-    }
-
-    async function verifyKeyWithServer(key){
-      const r = await fetch(CF_API_BASE + "/verify", {
-        method: "POST",
-        headers: {"Content-Type":"application/json"},
-        body: JSON.stringify({ key })
-      });
-      return r.json().catch(()=>({ok:false,error:"BAD_RESPONSE"}));
-    }
-
-    async function doLogin(){
-      const input = $("keyInput");
-      const logout = $("logoutKey");
-
-      const k = (input?.value || "").trim();
-      if(!k){
-        setMsg("Key gir.", false);
-        shakeCard();
-        return;
-      }
-
-      // ✅ LOADING AÇ
-      setLoading(true);
-      setMsg("Kontrol ediliyor...", true);
-
-      try{
-        const res = await verifyKeyWithServer(k);
-
-        if(res.ok){
-          // ✅ SUCCESS EFEKTİ
-          successCard();
-          localStorage.setItem(KEY_SAVED, k);
-          setMsg("Giriş başarılı ✅", true);
-
-          if(logout) logout.style.display = "inline-block";
-          setTimeout(openGate, 250);
-        } else {
-          // ✅ HATA SHAKE
-          shakeCard();
-          setMsg(errToText(res.error), false);
-        }
-      }catch(e){
-        shakeCard();
-        setMsg("Sunucuya ulaşılamadı ❌", false);
-      }finally{
-        // ✅ LOADING KAPAT
-        setLoading(false);
-      }
-    }
-
-    document.addEventListener("DOMContentLoaded", async ()=>{
-      const logout = $("logoutKey");
-
-      // 1) Kayıtlı key varsa otomatik dene
-      const saved = (localStorage.getItem(KEY_SAVED) || "").trim();
-      if(saved){
-        setLoading(true);
-        setMsg("Kayıtlı key kontrol ediliyor...", true);
-
-        try{
-          const res = await verifyKeyWithServer(saved);
-          if(res.ok){
-            if(logout) logout.style.display = "inline-block";
-            openGate();
-            setLoading(false);
-            return;
-          }
-        }catch(e){}
-
-        localStorage.removeItem(KEY_SAVED);
-        setLoading(false);
-      }
-
-      // 2) Gate’i göster
-      showGate();
-
-      // 3) Event’leri burada bağla (garanti)
-      const btn = $("keyBtn");
-      const input = $("keyInput");
-
-      btn?.addEventListener("click", doLogin);
-      input?.addEventListener("keydown", (e)=>{ if(e.key === "Enter") doLogin(); });
-
-      logout?.addEventListener("click", ()=>{
-        localStorage.removeItem(KEY_SAVED);
-        setMsg("Key sıfırlandı. Tekrar giriş yap.", false);
-        if(input) input.value = "";
-        if(logout) logout.style.display = "none";
-        showGate();
-      });
-    });
-  })();
-</script>
-
-<script>
-function setLoading(on){
-  const btn = document.getElementById("keyBtn");
-  if(!btn) return;
-  btn.disabled = on;
-  btn.classList.toggle("loading", on);
-}
-
-function shakeCard(){
-  const card = document.querySelector(".keyCard");
-  if(!card) return;
-  card.classList.remove("shake");
-  void card.offsetWidth;
-  card.classList.add("shake");
-}
-
-function successCard(){
-  const card = document.querySelector(".keyCard");
-  if(!card) return;
-  card.classList.add("success");
-  setTimeout(()=>card.classList.remove("success"), 800);
-}
-</script>
-
 </body>
 </html>
