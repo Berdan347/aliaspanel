@@ -4,21 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BRDN Alias Panel</title>
-  <meta name="description" content="Sade ve profesyonel alias üretim paneli" />
+  <meta name="description" content="Sade, profesyonel ve hızlı alias üretim paneli" />
   <style>
     :root{
-      --bg:#06101c;
-      --bg-soft:#0b1727;
-      --card:rgba(11,23,39,.82);
-      --stroke:rgba(120,160,210,.14);
-      --text:#edf4ff;
-      --muted:#96a6bf;
+      --bg:#050c16;
+      --bg-soft:#0a1525;
+      --card:rgba(10,21,37,.82);
+      --stroke:rgba(114,152,203,.14);
+      --text:#eef5ff;
+      --muted:#93a5be;
       --primary:#22d3ee;
-      --primary-2:#38bdf8;
+      --primary2:#38bdf8;
+      --success:#34d399;
       --danger:#fb7185;
-      --radius:22px;
-      --shadow:0 18px 60px rgba(0,0,0,.35);
-      --max:1100px;
+      --warning:#fbbf24;
+      --shadow:0 22px 70px rgba(0,0,0,.38);
+      --radius:24px;
+      --max:1160px;
     }
 
     *{box-sizing:border-box}
@@ -28,7 +30,7 @@
       font-family:Inter,Arial,Helvetica,sans-serif;
       color:var(--text);
       background:
-        radial-gradient(circle at top, #0c3550 0%, #071221 32%, #040b14 100%);
+        radial-gradient(circle at top, #0c3754 0%, #071321 32%, #040a13 100%);
     }
 
     .wrap{
@@ -45,10 +47,10 @@
       padding:14px 16px;
       border:1px solid var(--stroke);
       border-radius:20px;
-      background:rgba(4,10,20,.55);
+      background:rgba(6,14,26,.58);
       backdrop-filter:blur(12px);
       box-shadow:var(--shadow);
-      margin-bottom:22px;
+      margin-bottom:24px;
     }
 
     .brand{
@@ -59,16 +61,16 @@
     }
 
     .brand-logo{
-      width:48px;
-      height:48px;
+      width:50px;
+      height:50px;
       border-radius:16px;
       display:grid;
       place-items:center;
       font-weight:800;
       font-size:22px;
-      color:#dffbff;
+      color:#defcff;
       background:linear-gradient(135deg, rgba(34,211,238,.18), rgba(56,189,248,.28));
-      border:1px solid rgba(56,189,248,.2);
+      border:1px solid rgba(56,189,248,.22);
       box-shadow:0 0 40px rgba(34,211,238,.12);
       flex-shrink:0;
     }
@@ -85,29 +87,50 @@
       color:var(--muted);
     }
 
+    .top-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
     .hero{
+      margin:26px 0 24px;
       text-align:center;
-      margin:24px 0 22px;
+    }
+
+    .hero-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid rgba(56,189,248,.18);
+      background:rgba(34,211,238,.08);
+      color:#cffafe;
+      font-size:13px;
+      font-weight:700;
+      margin-bottom:16px;
     }
 
     .hero h1{
       margin:0;
-      font-size:44px;
-      line-height:1.04;
+      font-size:48px;
+      line-height:1.03;
       letter-spacing:-.03em;
     }
 
     .hero p{
-      width:min(680px, 100%);
-      margin:12px auto 0;
+      width:min(700px, 100%);
+      margin:14px auto 0;
       color:var(--muted);
       font-size:15px;
-      line-height:1.7;
+      line-height:1.75;
     }
 
     .shell{
       display:grid;
-      grid-template-columns:220px 1fr;
+      grid-template-columns:230px 1fr;
       gap:16px;
     }
 
@@ -159,9 +182,20 @@
     }
 
     .nav-btn.active{
-      background:linear-gradient(135deg, var(--primary), var(--primary-2));
-      color:#07101d;
+      background:linear-gradient(135deg, var(--primary), var(--primary2));
+      color:#06101a;
       font-weight:800;
+    }
+
+    .side-note{
+      margin-top:16px;
+      border:1px solid var(--stroke);
+      border-radius:18px;
+      background:rgba(255,255,255,.02);
+      padding:14px;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.65;
     }
 
     .content{
@@ -194,7 +228,7 @@
 
     .stats{
       display:grid;
-      grid-template-columns:repeat(3,1fr);
+      grid-template-columns:repeat(4,1fr);
       gap:14px;
       margin-bottom:18px;
     }
@@ -220,7 +254,13 @@
 
     .grid{
       display:grid;
-      grid-template-columns:1.1fr .9fr;
+      grid-template-columns:1.08fr .92fr;
+      gap:16px;
+    }
+
+    .grid3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
       gap:16px;
     }
 
@@ -277,7 +317,7 @@
     }
 
     .mode.active{
-      border-color:rgba(34,211,238,.4);
+      border-color:rgba(34,211,238,.38);
       background:rgba(34,211,238,.08);
     }
 
@@ -292,12 +332,14 @@
       line-height:1.5;
     }
 
-    .actions{
+    .actions, .toolbar{
       display:flex;
       gap:10px;
       flex-wrap:wrap;
-      margin-top:16px;
     }
+
+    .actions{margin-top:16px}
+    .toolbar{margin-bottom:14px}
 
     .btn{
       border:none;
@@ -312,7 +354,7 @@
     .btn:hover{transform:translateY(-1px)}
 
     .btn.primary{
-      background:linear-gradient(135deg, var(--primary), var(--primary-2));
+      background:linear-gradient(135deg, var(--primary), var(--primary2));
       color:#06101b;
     }
 
@@ -328,11 +370,10 @@
       border:1px solid rgba(251,113,133,.22);
     }
 
-    .toolbar{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-bottom:14px;
+    .btn.warning{
+      background:rgba(251,191,36,.12);
+      color:#ffe5a2;
+      border:1px solid rgba(251,191,36,.22);
     }
 
     .list{
@@ -385,6 +426,7 @@
       color:var(--muted);
       background:rgba(255,255,255,.02);
       font-size:14px;
+      line-height:1.65;
     }
 
     .history-item{
@@ -401,6 +443,8 @@
       flex-wrap:wrap;
       margin-bottom:6px;
     }
+
+    .muted{color:var(--muted)}
 
     .settings-grid{
       display:grid;
@@ -428,6 +472,23 @@
       border-color:rgba(34,211,238,.38);
       background:rgba(34,211,238,.08);
       color:#dffcff;
+    }
+
+    .guide-list{
+      display:grid;
+      gap:12px;
+    }
+
+    .guide-item{
+      border:1px solid var(--stroke);
+      border-radius:16px;
+      padding:14px;
+      background:rgba(255,255,255,.02);
+    }
+
+    .guide-item strong{
+      display:block;
+      margin-bottom:6px;
     }
 
     .footer{
@@ -467,11 +528,29 @@
       font-size:13px;
     }
 
+    .floating-support{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      z-index:999;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:13px 16px;
+      border-radius:999px;
+      background:linear-gradient(135deg, var(--primary), var(--primary2));
+      color:#06101b;
+      font-weight:800;
+      text-decoration:none;
+      box-shadow:0 18px 50px rgba(34,211,238,.18);
+    }
+
     @media (max-width: 980px){
       .shell,
       .grid,
       .settings-grid,
-      .field-grid{
+      .field-grid,
+      .grid3{
         grid-template-columns:1fr;
       }
       .stats{
@@ -515,17 +594,20 @@
         <div class="brand-logo">✦</div>
         <div>
           <div class="brand-title" id="brandTop">BRDN Alias Panel</div>
-          <div class="brand-sub">Sade, hızlı ve profesyonel üretim ekranı</div>
+          <div class="brand-sub">Minimal, premium ve hızlı çalışma alanı</div>
         </div>
       </div>
-      <button class="btn secondary" id="resetSettingsBtn">Ayarları Sıfırla</button>
+      <div class="top-actions">
+        <button class="btn secondary" id="resetSettingsBtn">Ayarları Sıfırla</button>
+      </div>
     </div>
 
     <div class="hero">
+      <div class="hero-badge">PRO SÜRÜM • SADE ARAYÜZ</div>
       <h1 id="brandHero">BRDN Alias Panel</h1>
       <p>
         Gmail için +tag ve nokta varyasyonlarını hızlıca üret.
-        Gereksiz kalabalık olmadan, temiz ve premium bir panel deneyimi.
+        Temiz görünüm, net akış, gereksiz kalabalık olmadan profesyonel bir kullanım deneyimi.
       </p>
     </div>
 
@@ -537,7 +619,12 @@
           <button class="nav-btn" data-view="generator">Generator</button>
           <button class="nav-btn" data-view="favorites">Favoriler</button>
           <button class="nav-btn" data-view="exports">Export</button>
+          <button class="nav-btn" data-view="guide">Kılavuz</button>
           <button class="nav-btn" data-view="settings">Ayarlar</button>
+        </div>
+
+        <div class="side-note">
+          Bu panel yalnızca alias listesi üretir. Gerçek giriş, şifre toplama veya hesap erişimi içermez.
         </div>
       </aside>
 
@@ -546,7 +633,7 @@
           <div class="section-head">
             <div>
               <h2>Genel Bakış</h2>
-              <p>Üretim ve yönetim için sade ana ekran.</p>
+              <p>Tek ekranda üret, takip et ve yönet.</p>
             </div>
           </div>
 
@@ -562,6 +649,10 @@
             <div class="stat">
               <div class="stat-label">Favoriler</div>
               <div class="stat-value" id="statFavorites">0</div>
+            </div>
+            <div class="stat">
+              <div class="stat-label">Export</div>
+              <div class="stat-value" id="statExported">0</div>
             </div>
           </div>
 
@@ -583,7 +674,7 @@
               <div class="modes">
                 <button class="mode active" data-mode="plus">
                   <div class="mode-title">+tag</div>
-                  <div class="mode-desc">Düzenli ve hızlı üretim</div>
+                  <div class="mode-desc">Hızlı ve düzenli üretim</div>
                 </button>
                 <button class="mode" data-mode="dot">
                   <div class="mode-title">Nokta</div>
@@ -612,7 +703,7 @@
           <div class="section-head">
             <div>
               <h2>Generator</h2>
-              <p>Üretilen listeyi filtrele, kopyala ve favorilere ekle.</p>
+              <p>Listeyi filtrele, kopyala ve favorilere ekle.</p>
             </div>
           </div>
 
@@ -628,7 +719,7 @@
           <div class="section-head">
             <div>
               <h2>Favoriler</h2>
-              <p>Kaydettiğin aliaslar burada durur.</p>
+              <p>Kaydettiğin aliaslar burada tutulur.</p>
             </div>
             <button class="btn danger" id="clearFavoritesBtn">Temizle</button>
           </div>
@@ -640,19 +731,51 @@
           <div class="section-head">
             <div>
               <h2>Export</h2>
-              <p>Listeyi farklı formatlarda dışa aktar.</p>
+              <p>Üretilen listeyi dışa aktar.</p>
             </div>
           </div>
 
-          <div class="grid">
+          <div class="grid3">
             <button class="card" id="exportTxtBtn" style="text-align:left;cursor:pointer">
               <h3>TXT Export</h3>
               <div class="muted">Düz metin listesi indirir.</div>
             </button>
             <button class="card" id="exportJsonBtn" style="text-align:left;cursor:pointer">
               <h3>JSON Export</h3>
-              <div class="muted">Yapısal veri olarak indirir.</div>
+              <div class="muted">Yapısal veri formatı indirir.</div>
             </button>
+            <button class="card" id="exportCsvBtn" style="text-align:left;cursor:pointer">
+              <h3>CSV Export</h3>
+              <div class="muted">Excel uyumlu çıktı indirir.</div>
+            </button>
+          </div>
+        </section>
+
+        <section class="section" id="section-guide">
+          <div class="section-head">
+            <div>
+              <h2>Kılavuz</h2>
+              <p>Paneli hızlı kullanmak için kısa rehber.</p>
+            </div>
+          </div>
+
+          <div class="guide-list">
+            <div class="guide-item">
+              <strong>1. Gmail adresini gir</strong>
+              Demo mail ya da uygun bir gmail.com adresi yaz.
+            </div>
+            <div class="guide-item">
+              <strong>2. Mod seç</strong>
+              +tag, nokta veya karma modlarından birini seç.
+            </div>
+            <div class="guide-item">
+              <strong>3. Aliasları üret</strong>
+              Tek tuşla liste oluşur.
+            </div>
+            <div class="guide-item">
+              <strong>4. Yönet</strong>
+              Kopyala, favorilere ekle veya farklı formatlarda indir.
+            </div>
           </div>
         </section>
 
@@ -660,7 +783,7 @@
           <div class="section-head">
             <div>
               <h2>Ayarlar</h2>
-              <p>Sade marka ve tema kontrol alanı.</p>
+              <p>Basit marka ve tema kontrolü.</p>
             </div>
           </div>
 
@@ -691,6 +814,10 @@
       <a href="https://discord.com/users/816990858515709962" target="_blank" rel="noreferrer">Discord</a>
     </div>
   </div>
+
+  <a class="floating-support" href="https://discord.com/users/816990858515709962" target="_blank" rel="noreferrer">
+    Destek
+  </a>
 
   <script>
     const DEFAULT_STATE = {
@@ -787,13 +914,13 @@
     function setTheme(theme) {
       state.theme = theme;
       if (theme === "cyan") {
-        document.body.style.background = "radial-gradient(circle at top,#0c3550 0%, #071221 32%, #040b14 100%)";
+        document.body.style.background = "radial-gradient(circle at top,#0c3754 0%, #071321 32%, #040a13 100%)";
       }
       if (theme === "violet") {
         document.body.style.background = "radial-gradient(circle at top,#312e81 0%, #111827 32%, #030712 100%)";
       }
       if (theme === "emerald") {
-        document.body.style.background = "radial-gradient(circle at top,#065f46 0%, #06211b 32%, #040b14 100%)";
+        document.body.style.background = "radial-gradient(circle at top,#065f46 0%, #072019 32%, #040a13 100%)";
       }
       document.querySelectorAll(".theme-btn").forEach(btn => {
         btn.classList.toggle("active", btn.dataset.theme === theme);
@@ -821,6 +948,7 @@
       document.getElementById("statGenerated").textContent = state.stats.generated;
       document.getElementById("statCopied").textContent = state.stats.copied;
       document.getElementById("statFavorites").textContent = state.favorites.length;
+      document.getElementById("statExported").textContent = state.stats.exported;
     }
 
     function renderHistoryPreview() {
@@ -974,6 +1102,8 @@
       const arr = filteredItems();
       if (!arr.length) return toast("Liste boş.");
       downloadFile("aliaslar.txt", arr.join("\n"), "text/plain;charset=utf-8");
+      state.stats.exported += arr.length;
+      renderAll();
       toast("TXT indirildi.");
     }
 
@@ -981,7 +1111,19 @@
       const arr = filteredItems();
       if (!arr.length) return toast("Liste boş.");
       downloadFile("aliaslar.json", JSON.stringify(arr, null, 2), "application/json;charset=utf-8");
+      state.stats.exported += arr.length;
+      renderAll();
       toast("JSON indirildi.");
+    }
+
+    function exportCsv() {
+      const arr = filteredItems();
+      if (!arr.length) return toast("Liste boş.");
+      const csv = ["alias", ...arr].join("\n");
+      downloadFile("aliaslar.csv", csv, "text/csv;charset=utf-8");
+      state.stats.exported += arr.length;
+      renderAll();
+      toast("CSV indirildi.");
     }
 
     function clearFavorites() {
@@ -1004,12 +1146,14 @@
       state.email = DEFAULT_STATE.email;
       state.count = DEFAULT_STATE.count;
       state.mode = DEFAULT_STATE.mode;
+
       document.getElementById("emailInput").value = state.email;
       document.getElementById("countInput").value = state.count;
       document.getElementById("brandInput").value = state.brandName;
       document.querySelectorAll(".mode").forEach(btn => {
         btn.classList.toggle("active", btn.dataset.mode === state.mode);
       });
+
       setTheme(state.theme);
       updateBrand();
       toast("Ayarlar sıfırlandı.");
@@ -1054,6 +1198,7 @@
     document.getElementById("copyAllBtn").addEventListener("click", copyAll);
     document.getElementById("exportTxtBtn").addEventListener("click", exportTxt);
     document.getElementById("exportJsonBtn").addEventListener("click", exportJson);
+    document.getElementById("exportCsvBtn").addEventListener("click", exportCsv);
     document.getElementById("clearFavoritesBtn").addEventListener("click", clearFavorites);
     document.getElementById("resetSettingsBtn").addEventListener("click", resetSettings);
 
